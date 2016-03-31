@@ -1,18 +1,75 @@
-body {
+html, body {
 	background-color: #fff;
+	height:95%;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	color: #333;
 }
 
 .container {
 	max-width: 940px;
 	margin: 0 auto;
+	height:95%;
+}
+
+.main {
+	height: 95%;
 }
 
 .main_image {
 	float: left;
 	width: 45%;
+	background-image: url('../img/Atrium-B.jpg');
+	height: 100%;
+	background-size: cover;
 }
+
+
+/* FEED Content */
 
 .feed {
 	float: right;
-	width: 
+	width: 45%;
+	overflow: auto;
+	height: 100%;
+}
+
+.feed_item {
+	position: relative;
+}
+
+.feed_image {
+	width: 90%;
+}
+
+.feed h1 {
+	text-align: center;
+	margin: 0px 0px -10px 0px
+}
+
+.category {
+	position: absolute;
+	right: 0px;
+	top: 0;
+	background-color: #000;
+	color: #fff;
+	padding: 5px 20px 5px 20px;
+	
+}
+
+.content {
+	float: left;
+	width: 70%;
+	position: relative;
+}
+
+.logo {
+	float: right;
+	width: 30%;
+	position: relative;
+	height: 100%;
+}
+
+.logo img {
+	margin-top: 30%;
 }
