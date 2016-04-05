@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+	<title>Fjerdingen Westerdals</title>
+	
+	<!-- Style -->
+	<link rel="stylesheet" href="css/style.css" />
+	
+	<!-- ckeditor -->
+	<script src="http://cdn.ckeditor.com/4.5.8/standard/ckeditor.js"></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+    	function validateForm() {
+		    var tittel = document.forms["submitarticle"]["tittel"].value;
+		    if (tittel == null || tittel == "") {
+		        alert("Tittelen må fylles ut");
+		        return false;
+		    }
+		    var dato = document.forms["submitarticle"]["dato"].value;
+		    if (dato == null || dato == "") {
+		        alert("Dato må fylles ut");
+		        return false;
+		    }
+		    var bilde = document.forms["submitarticle"]["bilde"].value;
+		    if (bilde == null || bilde == "") {
+		        alert("Bilde må lastes opp");
+		        return false;
+		    }
+		    var ingress = document.forms["submitarticle"]["ingress"].value;
+		    if (ingress == null || ingress == "") {
+		        alert("Ingress må fylles ut");
+		        return false;
+		    }
+		    var artikkel = document.forms["submitarticle"]["artikkel"].value;
+		    if (artikkel == null || artikkel == "") {
+		        alert("Artikkel må fylles ut");
+		        return false;
+		    }
+		}    
+    </script>
+	
+</head>
+<body>
+	
+	<div class="container">
+		
+		<header class="header">
+			<menu class="menu">
+			<ul id="nyheter">
+  				<li><a href="index.php">Nyheter</a></li>
+			</ul>
+			<ul id="event">
+  				<li><a href="?side=arrangementer">Arrangementer</a></li>
+			</ul>
+			<div id="westerdals">
+  				<li><a href="index.php"><img src="img/logo.png"</a></li>
+			</div>
+			<ul id="about">
+  				<li><a href="?side=omoss">Om Fjerdingen</a></li>
+			</ul>
+				<div class="dropdown">
+  					<button class="dropbtn" >Send inn</button>
+  					<div class="dropdown-content">
+    				<a href="?side=submit_nyheter">Nyheter</a>
+    				<a href="?side=submit_prosjekt">Prosjekt</a>
+    				<a href="?side=submit_arrangement">Arrangementer</a>
+ 				 </div>
+			</menu>
+		</header>
+		
+		
+		
+		<section class="main">

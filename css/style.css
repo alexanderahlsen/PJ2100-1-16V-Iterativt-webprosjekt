@@ -46,7 +46,6 @@ html, body {
 
 .feed h1 {
 	text-align: center;
-	margin: 0px 0px -10px 0px
 }
 
 .category {
@@ -196,5 +195,11 @@ html, body {
 /* end of menu */
 
 
+.omOss {
+	float: right;
+	width: 45%;
+	overflow: auto;
+	height: 100%;
+}
 
 
