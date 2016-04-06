@@ -1,7 +1,10 @@
+<?php include_once 'functions.php'; ?>
+<?php include_once 'header.html'; ?>
+
 <?php
     $conn = GetMyConnection($g_link);
+    $kategoriId = $_GET['id'];
 ?>
-
 			<section class="main_image"></section>
 			
 			<section class="feed">
@@ -13,16 +16,18 @@
 					$kategori = $row["kategori"];
 					$avdeling = $row["avdeling"];
 					
-					if($row["kategori"] == 1 || $row["kategori"] == 3) {
+					if($row["kategori"] == $kategoriId) {
 			?>
 				
 				<div class="feed_item">
 					<span class="content">
 						<span class="category">
-						<?php if($row["kategori"] == 1) {
-							echo "<a href='feed.php?id=1' >Nyhet</a>";
+						<?php if($kategoriId == 1) {
+								echo "<a href='feed.php?id=1' >Nyhet</a>";
+							} elseif($kategoriId == 2) {
+								echo "<a href='feed.php?id=2' >Prosjekt</a>";
 							} elseif($row["kategori"] == 3) {
-							echo "<a href='feed.php?id=3' >Arrangement</a>";
+								echo "<a href='feed.php?id=3' >Arrangement</a>";
 							}
 						?>	</span>
 						<img src="uploads/<?php echo $row["bilde"]?>" alt="Nyhet bilde" class="feed_image" >
@@ -43,6 +48,7 @@
 					?>
 					</span>
 				</div>				
+			
 			<?php
 				}
 				}
@@ -53,3 +59,4 @@
 			
 			</section>
 	
+<?php include_once 'footer.html'; ?>

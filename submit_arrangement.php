@@ -4,62 +4,48 @@
  
         // commit token to session
         $_SESSION['user_token'] = $form_token;
-        
-        echo $_SESSION['user_token'];
         ?>
+<div class="page-header">
+  <h1>Send inn et arrangement <small>Fyll ut skjema under</small></h1>
+</div>
 
-<table border="1">
-  <tr>
-    <td align="center">Send inn en nyhet!</td>
-  </tr>
-  <tr>
-  <td>
-  <table>
-    <form name="submitarticle" action="form_submit.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-	<input type="hidden" name="user_token" value="<?php echo  $_SESSION['user_token'];  ?>" />
-	<input type="hidden" name="kategori" value="1">
-    <tr>
-      <td>Tittel</td>
-      <td><input type="text" name="tittel" size="20">
-      </td>
-    </tr>
-    <tr>
-      <td>Dato:</td>
-      <td><input type="date" name="dato">
-      </td>
-    </tr>
-    <tr>
-      <td>Bilde (url)</td>
-      <td><input type="file" name="bilde" id="bilde">
-      </td>
-    </tr>
-    <tr>
-      <td>Avdeling</td>
-      <td>
-	    <select name="avdeling">
-		 	<option value="1">Avdeling for kommunikasjon</option>
-		 	<option value="2">Avdeling for Kunstfag</option>
-		 	<option value="4">Avdeling for Teknologi</option>
-		 	<option value="3">Hele Campus</option>
-		</select> 
-      </td>
-    </tr>
-    <tr>
-      <td>Ingress</td>
-      <td>
-	     <textarea rows="2" cols="50" name="ingress">Skriv en kort ingress til artikkelen.</textarea> 
-      </td>
-    </tr>
-    <tr>
-      <td>Artikkel</td>
-      <td>
-	     <textarea id="artikkel" name="artikkel">Skriv din artikkel, html tillatt.</textarea> 
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td align="right"><input type="submit" name="submit" value="Sent"></td>
-    </tr>
+<form name="submitarticle" action="form_submit.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+	<div class="form-group">
+		
+		<input type="hidden" name="user_token" value="<?php echo  $_SESSION['user_token'];  ?>" />
+		<input type="hidden" name="kategori" value="3">
+	
+		<label for="tittel">Tittel</label>
+		<input type="text" name="tittel" class="form-control" placeholder="Tittel på arrangementet">
+		
+		<label for="tittel">Dato</label>
+		<input type="date" name="dato" class="form-control">
+		
+		<div class="form-group">
+			<label for="tittel">Bilde</label>
+			<input type="file" name="bilde" class="form-control">
+			 <p class="help-block">Filtyper: JPG, JPEG, PNG & GIF - Maks størrelse: 10MB</p>
+		</div>
+		
+		<label for="tittel">Avdeling</label>
+		<select class="form-control" name="avdeling">
+			<option value="1">Avdeling for kommunikasjon</option>
+			<option value="2">Avdeling for Kunstfag</option>
+			<option value="4">Avdeling for Teknologi</option>
+			<option value="3">Hele Campus</option>
+		</select>
+		
+		<label for="tittel">Ingress</label>
+		<textarea class="form-control" rows="2" name="ingress" placeholder="Skriv inn en kort ingress til arrangementet"></textarea>
+		
+		<label for="tittel">Beskrivelse</label>
+		<textarea class="form-control" id="artikkel" name="artikkel" placeholder="Skriv din artikkel, html tillatt.">&nbsp;</textarea>
+		
+		<div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <input type="submit" name="submit" class="btn btn-default" value="Send inn">
+	    </div>
+	  </div>
     <script>
         CKEDITOR.replace( 'artikkel' );
     </script>

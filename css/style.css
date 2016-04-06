@@ -45,7 +45,8 @@ html, body {
 }
 
 .feed h1 {
-	text-align: center;
+    text-align: center;
+    font-size: 25px;
 }
 
 .category {
@@ -53,9 +54,12 @@ html, body {
 	right: 0px;
 	top: 0;
 	background-color: #000;
-	color: #fff;
 	padding: 5px 20px 5px 20px;
 	
+}
+
+.category a {
+	color: #fff;
 }
 
 .content {
@@ -129,7 +133,6 @@ html, body {
 	margin-left: 110px;
 	margin-top: 0px;
 	height: 110px;
-	width: 120px;
 }
 
 #westerdals li a:hover{
@@ -138,7 +141,6 @@ html, body {
 
 #westerdals img {
 	height: 110px;
-	width: 120px;
 }
 
 /* dropdown menu */
@@ -202,4 +204,14 @@ html, body {
 	height: 100%;
 }
 
+.westerdals_logo {
+	width: 65px;
+	margin-left: 30px;
+}
+
+.lead p img {
+	    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
