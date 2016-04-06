@@ -115,7 +115,7 @@ html, body {
 
 #event {
 	float: left;
-	margin-left: 50px;
+	margin-left: 100px;
 }
 
 #nyheter {
@@ -130,7 +130,7 @@ html, body {
 
 #westerdals {
 	float: left;
-	margin-left: 110px;
+	margin-left: 100px;
 	margin-top: 0px;
 	height: 110px;
 }
