@@ -38,7 +38,7 @@
 							}
 						?>	</span>
 						<!-- Post image -->
-						<img src="uploads/<?php echo $row["bilde"]?>" alt="Nyhet bilde" class="feed_image" >
+						<img src="<?php echo $row["bilde"]?>" alt="Nyhet bilde" class="feed_image" >
 						<!-- Post title and link -->
 						<a href="nyhet.php?id=<?php echo $row["id"]?>"><h1><?php echo $row["tittel"]?></h1></a>
 						<!-- Showing a short summary -->
