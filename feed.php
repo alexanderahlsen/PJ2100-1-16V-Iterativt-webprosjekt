@@ -1,5 +1,14 @@
-<?php include_once 'functions.php'; ?>
-<?php include_once 'header.html'; ?>
+<?php
+/**
+ * Westerdals Fjerdingen
+ * 
+ * @author			Alexander Ahlsen
+ * @package 		Fjeringen
+ * @version 		6./04.16 
+ */	
+	
+include_once 'functions.php';
+include_once 'header.html'; ?>
 
 <?php
     $conn = GetMyConnection($g_link);

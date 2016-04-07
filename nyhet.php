@@ -1,16 +1,30 @@
-<?php include_once 'functions.php'; ?>
-<?php include_once 'header.html'; ?>
+<?php
+/**
+ * Westerdals Fjerdingen
+ * 
+ * @author			Alexander Ahlsen
+ * @package 		Fjeringen
+ * @version 		6./04.16 
+ */	 
+ 
+ // Include both the functions.php (database connection etc) and the header.html for the template
+ include_once 'functions.php';
+ include_once 'header.html'; ?>
 
 
 <?php 
+	// Getting the id from the URL and sending that to our DB extraction
 	$id = $_GET['id'];
 	$nyhet = GetMyConnection($g_link, $id);
 	
+	// Getting the data out
 	$row = $nyhet->fetch_assoc();
 	
+	// Using html_entity_decode to decode the coded html from the DB
 	$txt_entity = $row['tekst'];
 	$txt = html_entity_decode($txt_entity);
 	
+	// Formatting the date
 	$originalDate = $row['dato'];
 	$newDate = date("l j F, Y", strtotime($originalDate));
 	
@@ -75,7 +89,7 @@
                     <!-- /.row -->
                 </div>
 
-                <!-- Side Widget Well -->
+                <!-- Sidebar 2 -->
                 <div class="well">
                     <h4>Om Fjerdingen</h4>
                     <p>Westerdals skule ha et nytt campus, og det ble Westerdals Fjerdingen! Her skal alle fra teknologi, kunstfag, kommunikasjon og ledelse være.</p>
@@ -86,4 +100,5 @@
         </div>
         <!-- /.row -->
 
+<!-- include the footer -->
 <?php include_once 'footer.html'; ?>

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Westerdals Fjerdingen
+ * 
+ * @author			Alexander Ahlsen
+ * @package 		Fjeringen
+ * @version 		6./04.16 
+ */	 
         // create unique token
         $form_token = uniqid();
  
@@ -12,7 +19,9 @@
 <form name="submitarticle" action="form_submit.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 	<div class="form-group">
 		
+		<!-- Setting the user token to the form -->
 		<input type="hidden" name="user_token" value="<?php echo  $_SESSION['user_token'];  ?>" />
+		<!-- Setting the current category ID, this would be 3 for events -->
 		<input type="hidden" name="kategori" value="3">
 	
 		<label for="tittel">Tittel</label>
@@ -46,6 +55,8 @@
 	      <input type="submit" name="submit" class="btn btn-default" value="Send inn">
 	    </div>
 	  </div>
+	  
+	  <!-- Replace the textarea with the CKEditor -->
     <script>
         CKEDITOR.replace( 'artikkel' );
     </script>

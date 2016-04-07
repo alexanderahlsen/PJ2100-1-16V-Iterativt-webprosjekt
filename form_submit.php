@@ -34,6 +34,7 @@ if($user_token == $session_token) {
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
+	// If the form was submitted via the sub,it button we move on to test and then take away the html tags
 	if (isset($_POST['submit'])) {
 		$tittel =  test_input($_POST['tittel']);
 		$kategori =  test_input($_POST['kategori']);
@@ -42,6 +43,7 @@ if($user_token == $session_token) {
 		$ingress =  test_input($_POST['ingress']);
 		$artikkel = test_input($_POST['artikkel']);
 		
+		// Getting the image size of the picture
 		$checkImage = getimagesize($_FILES["bilde"]["tmp_name"]);
 		
 		if($check !== false) {
@@ -64,7 +66,6 @@ if($user_token == $session_token) {
 		
 		// If the file exists we want to add a number to the name to still upload it
 		$t=0;
-		
 		while(file_exists($target_file)){
 		    $target_file = $month_folder . '/' . basename($_FILES["bilde"]["name"]);
 		    $target_file = substr($target_file,0,strpos($target_file,"."))."_$t".strstr($target_file,".");
@@ -74,7 +75,7 @@ if($user_token == $session_token) {
 		// Check if $uploadOk is set to 0 by an error
 		if ($uploadOk == 0) {
 	    	echo "Vi beklager, men filen ble ikke lastet opp (kode: 0101)";
-		// if everything is ok, try to upload file
+		// if everything is ok, try to upload file and move it to the right folder
 		} else {
 	    	if (move_uploaded_file($_FILES["bilde"]["tmp_name"], $target_file)) {
 	        	$bilde = $target_file;
@@ -83,8 +84,10 @@ if($user_token == $session_token) {
 	    	}
 		}
 	
+		// Inserting the data to the database
 		$insert_data = mysqli_query($g_link, "INSERT INTO Nyheter (tittel, kategori, bilde, avdeling, ingress, tekst, dato) VALUES ('$tittel', '$kategori', '$bilde', '$avdeling', '$ingress', '$artikkel', '$dato')");
 		
+		// If the inserting went fine we display the following message to the suer and redirect them to the front page. If it didn't go so well we send them back to the form.
 		if ($insert_data) {
 	    	echo '<center><h1>Takk for din innsendelse!</h1></center>';
 	    	echo "<p>Du blir sendt videre</p></center>";
@@ -94,12 +97,15 @@ if($user_token == $session_token) {
 	    	echo "<script>setTimeout(function(){window.location.href='index.php?side=submit_nyheter'},5000);</script>";
 		}
 	}
+	// If anything went wrong with uploading the image, we send them back again
 } else {
 	echo "Ser ut som dette ikke gikk som det skulle, vi sender deg tilbake til start igjen!";
 	echo "<script>setTimeout(function(){window.location.href='index.php?side=submit_nyheter'},5000);</script>";
 }
 
+// Close the MySQL connection, empty the user token and include the footer
 mysqli_close($g_link);
-include_once 'footer.html';
 unset($_SESSION['user_token']);
+
+include_once 'footer.html';
 ?>

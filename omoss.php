@@ -1,4 +1,15 @@
-
+<?php
+/**
+ * Westerdals Fjerdingen
+ * 
+ * @author			Alexander Ahlsen
+ * @package 		Fjeringen
+ * @version 		6./04.16 
+ */	 
+ 
+ // Just the about us page
+ 
+?>
 			<section class="main_image"></section>
 			
 			<section class="omOss">
